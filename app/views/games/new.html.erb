@@ -1,3 +1,18 @@
-<h1>New Game</h1>
+<h1 style="font-family: sans-serif; text-align: center">New Game</h1>
 
-<h2><%= puts @letters %></h2>
+
+<ul style="list-style-type: none; display: flex; font-family: sans-serif; justify-content: space-around; font-size: 30px;">
+  <% @letters.each do |letter| %>
+    <li style="background-color: #333333; padding: 25px 30px; color: white;"> <%=  letter %></li>
+  <% end%>
+</ul>
+
+<form action="/score" method="post">
+
+  <input type="text" name="guess" placeholder="Enter your guess">
+  <input type="submit" value="Try!">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
+
+
+
